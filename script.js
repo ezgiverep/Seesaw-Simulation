@@ -8,6 +8,9 @@ const reset_btn = document.getElementById('reset-btn');
 const log_container = document.getElementById('log');
 const drop_sound = new Audio('assets/select-button-ui-395763.mp3');
 drop_sound.volume = 0.5;
+const modal = document.getElementById('custom-modal');
+const confirm_btn = document.getElementById('modal-confirm');
+const cancel_btn = document.getElementById('modal-cancel');
 
 let state = {
     left_torque: 0,
@@ -105,8 +108,19 @@ function addLog(message) {
 }
 
 function resetGame() {
-    localStorage.removeItem('seesaw_save');
-    location.reload();          
+    modal.classList.add('active');
+    confirm_btn.onclick = function() {
+        localStorage.removeItem('seesaw_save');
+        location.reload();
+    };
+    cancel_btn.onclick = function() {
+        modal.classList.remove('active');
+    };
+    window.onclick = function(event) {         // close modal on outside click
+    if (event.target == modal) {
+        modal.classList.remove('active');
+    }
+    };
 }
 
 init();
