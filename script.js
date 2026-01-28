@@ -36,6 +36,8 @@ function handleSeesawClick(e) {
     const distance_from_center = click_x - center_x;        
     const current_weight = state.next_weight;
     const side= distance_from_center < 0 ? 'left' : 'right';
+    const display_distance = Math.abs(distance_from_center).toFixed(0); // add proper log
+
 
     const new_item = {
         weight: current_weight,
