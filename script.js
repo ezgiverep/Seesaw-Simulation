@@ -28,6 +28,33 @@ function init() {
     reset_btn.addEventListener('click', resetGame);              // handle reset
 }
 
+function handleSeesawClick(e) {
+    const rect = clickable_area.getBoundingClientRect();
+    const click_x = e.clientX - rect.left; 
+    const center_x = rect.width / 2;                         // get center
+
+    const distance_from_center = click_x - center_x;        
+    const current_weight = state.next_weight;
+    const side= distance_from_center < 0 ? 'left' : 'right';
+
+    const new_item = {
+        weight: current_weight,
+        distance: distance_from_center,
+        xPercent: (click_x / rect.width) * 100, 
+        id: Date.now()
+    };
+
+    if (distance_from_center < 0) {                                           // left or right
+        state.left_torque += current_weight * Math.abs(distance_from_center); 
+        state.left_total_weight += current_weight;
+    } else { 
+        state.right_torque += current_weight * distance_from_center;
+        state.right_total_weight += current_weight;
+    }
+
+    state.placed_items.push(new_item);
+    state.next_weight = Math.floor(Math.random() * 10) + 1;
+}
 
 
 init();
