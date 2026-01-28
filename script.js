@@ -81,5 +81,16 @@ function saveAndRefresh() {
     localStorage.setItem('seesaw_save', JSON.stringify(state));
 }
 
+function updateUI() {
+    saveAndRefresh();
+}
+
+function addLog(message) {
+    const entry = document.createElement('div');
+    entry.className = 'log-entry';
+    entry.innerText = `${message}`;
+    log_container.prepend(entry);
+}
+
 
 init();
