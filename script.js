@@ -15,3 +15,19 @@ let state = {
     next_weight: Math.floor(Math.random() * 10) + 1, //1-10 kg
     placed_items: []
 };
+
+function init() {
+    const saved_data = localStorage.getItem('seesaw_save'); //get saved state 
+    if (saved_data) {                                       // if any
+        state = JSON.parse(saved_data);
+        state.placed_items.forEach(item => createObjectUI(item));
+    }
+    updateUI();
+
+    clickable_area.addEventListener('click', handleSeesawClick); // handle clicks
+    reset_btn.addEventListener('click', resetGame);              // handle reset
+}
+
+
+
+init();
