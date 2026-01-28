@@ -6,6 +6,8 @@ const right_weight_display = document.getElementById('right_weight');
 const tilt_angle_display = document.getElementById('tilt_angle');
 const reset_btn = document.getElementById('reset-btn');
 const log_container = document.getElementById('log');
+const drop_sound = new Audio('assets/select-button-ui-395763.mp3');
+drop_sound.volume = 0.5;
 
 let state = {
     left_torque: 0,
@@ -56,6 +58,9 @@ function handleSeesawClick(e) {
 
     state.placed_items.push(new_item);
     state.next_weight = Math.floor(Math.random() * 10) + 1;
+
+    drop_sound.currentTime = 0;
+    drop_sound.play();
 
     createObjectUI(new_item);
     saveAndRefresh();
