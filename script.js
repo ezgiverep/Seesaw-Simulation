@@ -54,6 +54,11 @@ function handleSeesawClick(e) {
 
     state.placed_items.push(new_item);
     state.next_weight = Math.floor(Math.random() * 10) + 1;
+
+    createObjectUI(new_item);
+    saveAndRefresh();
+    addLog(`${current_weight}kg dropped on ${side} side at ${display_distance} px from center.`);
+
 }
 
 function createObjectUI(item) {
@@ -96,6 +101,5 @@ function resetGame() {
     localStorage.removeItem('seesaw_save');
     location.reload();          
 }
-
 
 init();
