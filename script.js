@@ -117,9 +117,9 @@ function resetGame() {
         modal.classList.remove('active');
     };
     window.onclick = function(event) {         // close modal on outside click
-    if (event.target == modal) {
+        if (event.target == modal) {
         modal.classList.remove('active');
-    }
+        }
     };
 }
 
