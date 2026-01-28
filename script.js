@@ -92,5 +92,10 @@ function addLog(message) {
     log_container.prepend(entry);
 }
 
+function resetGame() {
+    localStorage.removeItem('seesaw_save');
+    location.reload();          
+}
+
 
 init();
