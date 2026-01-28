@@ -1,0 +1,40 @@
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div><h1>Seesaw Game</h1></div>
+    <div class="container">
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Left Weight</div>
+                <div class="stat-value" id="left_weight"></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Right Weight</div>
+                <div class="stat-value" id="right_weight"></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Next Weight</div>
+                <div class="stat-value" id="next_weight"></div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Tilt Angle</div>
+                <div class="stat-value" id="tilt_angle"></div>
+            </div>
+        </div>
+        <div class="seesaw-container" id="seesaw_container">
+            <div class="ground"></div>
+            <div class="pivot"></div>
+            <div class="seesaw-plank" id="seesaw_plank" style="transform: translateX(-50%) translateY(-50%) rotate(0deg);"></div>
+            <div class="seesaw-clickable" id="seesaw_clickable"></div>
+        </div>
+        <div class="controls">
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div class="log" id="log"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
