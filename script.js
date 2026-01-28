@@ -56,5 +56,17 @@ function handleSeesawClick(e) {
     state.next_weight = Math.floor(Math.random() * 10) + 1;
 }
 
+function createObjectUI(item) {
+    const obj = document.createElement('div'); 
+    obj.className = 'object';
+    obj.innerText = item.weight; 
+    
+    obj.style.left = `${item.xPercent}%`;
+    obj.style.bottom = '100%'; 
+    obj.style.transform = 'translateX(-50%)'; 
+    
+    plank.appendChild(obj);
+}
+
 
 init();
