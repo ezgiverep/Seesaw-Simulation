@@ -68,5 +68,18 @@ function createObjectUI(item) {
     plank.appendChild(obj);
 }
 
+function saveAndRefresh() {
+    const angle = Math.max(-30, Math.min(30, (state.right_torque - state.left_torque) / 10));
+    
+    plank.style.transform = `translateX(-50%) translateY(-50%) rotate(${angle.toFixed(2)}deg)`;   // limit angle
+    
+    left_weight_display.innerText = state.left_total_weight;
+    right_weight_display.innerText = state.right_total_weight;
+    next_weight_display.innerText = state.next_weight;
+    tilt_angle_display.innerText = angle.toFixed(1);
+
+    localStorage.setItem('seesaw_save', JSON.stringify(state));
+}
+
 
 init();
