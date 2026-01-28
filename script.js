@@ -108,12 +108,26 @@ function addLog(message) {
 }
 
 function resetGame() {
+    if(drop_sound) {
+        drop_sound.currentTime = 0;
+        drop_sound.play();
+    }
     modal.classList.add('active');
     confirm_btn.onclick = function() {
+        if (drop_sound) {
+            drop_sound.currentTime = 0;
+            drop_sound.play();
+        }
         localStorage.removeItem('seesaw_save');
-        location.reload();
+        setTimeout(() => {
+            location.reload();
+        }, 200);                                // delay for sound effect
     };
     cancel_btn.onclick = function() {
+        if (drop_sound) {
+            drop_sound.currentTime = 0;
+            drop_sound.play();
+        }
         modal.classList.remove('active');
     };
     window.onclick = function(event) {         // close modal on outside click
