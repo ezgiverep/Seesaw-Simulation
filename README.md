@@ -1,4 +1,4 @@
-🎮  **SEESAW SIMULATION**
+🎮  **SEESAW GAME** 🎮
 ---
 
 👩‍💻 **Technologies Used**
@@ -34,11 +34,6 @@
 
    🎯The reset modal is designed for getting confirmation from the user.
 
----
-
-🤖 **AI Usage**
-
-AI tools are used for only syntax and complex error handling.
 
 ---
 
